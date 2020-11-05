@@ -6,6 +6,7 @@ import java.io.UncheckedIOException;
 import java.nio.file.Files;
 import java.nio.file.Paths;
 import java.time.LocalDate;
+import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import java.util.List;
@@ -91,7 +92,7 @@ public class ProcessarBoletos {
                 boleto.setContaBancaria(vetor[3]);
 
                 boleto.setDataVencimento(LocalDate.parse(vetor[4], FORMATO_DATA));
-                boleto.setDataPagamento(LocalDate.parse(vetor[5], FORMATO_DATA).atTime(0, 0, 0));
+                boleto.setDataPagamento(LocalDateTime.parse(vetor[5],FORMATO_DATA_HORA));
 
                 boleto.setCpfCliente(vetor[6].replaceAll("-", ""));
                 boleto.setValor(Double.parseDouble(vetor[7]));
